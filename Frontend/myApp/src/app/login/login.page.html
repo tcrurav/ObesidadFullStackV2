@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-title>Login</ion-title>
+
+      <ion-buttons slot="start">
+          <ion-button (click)="toggleMenu()" color="secondary" expand="block" fill="clear" shape="round">
+              <ion-icon slot="start" name="menu"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <form  #form="ngForm" (ngSubmit)="login(form)">
+    <ion-item lines="full">
+      <ion-label position="floating">User</ion-label>
+      <ion-input  name="email" type="email" placeholder="Usuario" ngModel ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input name="password" type="password" placeholder="Contraseña" ngModel required></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" [disabled]="!form.valid" expand="block">Sign In</ion-button>
+  
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
