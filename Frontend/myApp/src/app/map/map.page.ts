@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, MenuController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 import { ViewChild, ElementRef } from '@angular/core';
 import { CentrosService } from '../services/centros.service';
 import { Centro } from '../Models/Centro';
@@ -9,19 +9,14 @@ import { MapArray } from '../Models/mapArray';
 import { MunicipiosService } from '../services/municipios.service';
 import { HealthsExtend } from '../Models/healthExtend';
 import { HealthsExtendService } from '../services/health-extend.service';
-import { Observable } from 'rxjs';
 
 declare var google: any;
-
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.page.html',
   styleUrls: ['./map.page.scss'],
 })
-
-
-
 
 export class MapPage implements OnInit {
 
@@ -39,24 +34,28 @@ export class MapPage implements OnInit {
   municipio1;
   markerbool: boolean = true;
   markerbool1: boolean = true;
-  ticks: any;
   constructor(
     private menuCtrl: MenuController,
     private centroService: CentrosService,
     private healthService: HealthsService,
     private municipioService: MunicipiosService,
-    private healthExtendService: HealthsExtendService,
-    private alertController:AlertController) {
+    private healthExtendService: HealthsExtendService) {
 
 
     this.getAllCentros();
 
   }
+  
+  toggleMenu() {
+    this.menuCtrl.toggle();
+  }
+
   ionViewWillEnter() {
     this.showMap();
   }
+
   ngOnInit() {
-   
+
   }
   toggleMap1() {
     console.log(this.centros);
@@ -132,9 +131,7 @@ this.markerbool1=false;
       this.centros = centros;
     
 
-    }, err => {
-      this.presentAlert("Error");
-    });
+    })
     
   }
   ionViewDidEnter() {
@@ -206,17 +203,7 @@ this.markerbool1=false;
     }
   }
 
-  async presentAlert(message: string) {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Error',
-      subHeader: message,
-      message: 'Try again.',
-      buttons: ['OK']
-    });
 
-    await alert.present();
-  }
 
 
   showMap() {
