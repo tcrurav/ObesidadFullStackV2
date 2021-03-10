@@ -11,7 +11,7 @@ const apiUrl = 'http://localhost:8080/api/usuario/signin/';
 })
 
 export class AuthService {
-  AUTH_SERVER_ADDRESS:  string  =  'http://localhost:8080';
+  AUTH_SERVER_ADDRESS:  string  =  'https://obesidadbackend.azurewebsites.net';
 
   constructor(private  httpClient:  HttpClient, private  storage:  Storage) { }
 
