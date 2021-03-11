@@ -3,6 +3,5 @@
         "node_modules{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/39870dd4-9625-4d2f-b29f-bbea92dc368f/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/obesidadbackend",
     "appService.deploySubpath": "BackEnd"
 }

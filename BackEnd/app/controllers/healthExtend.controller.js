@@ -85,6 +85,7 @@ exports.findAll = (req, res) => {
             });
         });
 };
+// Distritos
 exports.findHealthbyDistrito = async (req, res) => {
     let countInfra = await HealthsExtend.count({
         where: {
@@ -183,7 +184,325 @@ exports.findHealthbyDistrito = async (req, res) => {
     await res.json(data);
 }
 
+exports.findHealthbyDistritoEdad = async (req, res) => {
+    let countInfra = await HealthsExtend.count({
+        where: {
 
+            percent_Grasa: { [Op.between]: [0, 11] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+    })
+    let countNormo = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [12, 22] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+    })
+    let countSobre = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [23, 30] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+    })
+    let countObeso = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [31, 100] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+        }
+    )
+    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    await res.json(data);
+}
+exports.findHealthbyDistritoSexo = async (req, res) => {
+    let countInfra = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [0, 11] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+    })
+    let countNormo = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [12, 22] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+    })
+    let countSobre = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [23, 30] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+    })
+    let countObeso = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [31, 100] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+        }
+    )
+    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    await res.json(data);
+}
+exports.findHealthbyDistritoPh = async (req, res) => {
+    let countInfra = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [0, 11] },
+            actividad_Fisica:req.params.ph
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+    })
+    let countNormo = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [12, 22] },
+            actividad_Fisica:req.params.ph
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+    })
+    let countSobre = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [23, 30] },
+            actividad_Fisica:req.params.ph
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+    })
+    let countObeso = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [31, 100] },
+            actividad_Fisica:req.params.ph
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                edad: req.params.edad
+            },
+            include: {
+                model: Centro,
+                attributes: [],
+                as: "centros",
+                include: {
+                    model: Distrito,
+                    attributes: [],
+                    where:{
+                        idDistrito: req.params.id
+                    }
+                }
+            }
+        }
+        }
+    )
+    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    await res.json(data);
+}
 exports.healthExtendByAgeAverages = async (req, res) => {
     let countInfra = await HealthsExtend.count({
         where: {
@@ -243,25 +562,25 @@ exports.healthExtendByAgeAverages = async (req, res) => {
 exports.healthExtendByPhisicalAverages = async (req, res) => {
     let countInfra = await HealthsExtend.count({
         where: {
-
+            percent_Grasa: { [Op.between]: [12, 22] },
             actividad_Fisica:req.params.ph
         }
     })
     let countNormo = await HealthsExtend.count({
         where: {
-
+            percent_Grasa: { [Op.between]: [12, 22] },
             actividad_Fisica:req.params.ph
         }
     })
     let countSobre = await HealthsExtend.count({
         where: {
-
+            percent_Grasa: { [Op.between]: [12, 22] },
             actividad_Fisica:req.params.ph
         }
     })
     let countObeso = await HealthsExtend.count({
         where: {
-
+            percent_Grasa: { [Op.between]: [12, 22] },
             actividad_Fisica:req.params.ph
         }
     })
@@ -271,7 +590,7 @@ exports.healthExtendByPhisicalAverages = async (req, res) => {
 }
 
 
-
+//centros
 exports.CentersAverage = async (req, res) => {
     let countInfra = await HealthsExtend.count({
         where: {
@@ -301,6 +620,63 @@ exports.CentersAverage = async (req, res) => {
     await res.json(data);
 }
 exports.SequelizeOnlyAverageByCentro = async (req, res) => {
+    let countInfra = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [0, 11] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                idCentro: req.params.id
+            }
+        }
+    })
+    let countNormo = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [12, 22] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                idCentro: req.params.id
+            }
+        }
+    })
+    let countSobre = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [23, 30] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                idCentro: req.params.id
+            }
+        }
+    })
+    let countObeso = await HealthsExtend.count({
+        where: {
+
+            percent_Grasa: { [Op.between]: [31, 100] }
+        },
+        include: {
+            model: Health,
+            attributes: [],
+            where: {
+                idCentro: req.params.id
+            }
+        }
+    })
+    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    await res.json(data);
+
+}
+exports.SequelizeOnlyAverageByCentroEdad = async (req, res) => {
     let countInfra = await HealthsExtend.count({
         where: {
 

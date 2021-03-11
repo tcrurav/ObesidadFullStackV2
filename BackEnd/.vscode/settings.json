@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/39870dd4-9625-4d2f-b29f-bbea92dc368f/resourceGroups/obesidadbackend/providers/Microsoft.Web/sites/obesidadbackend",
+    "appService.deploySubpath": "."
+}
