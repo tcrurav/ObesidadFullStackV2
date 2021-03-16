@@ -1,0 +1,59 @@
+@import '../../../@theme/styles/themes';
+
+@include nb-install-component() {
+
+  nb-card-body {
+    padding: 0;
+  }
+
+  ::ng-deep .leaflet-top, ::ng-deep .leaflet-bottom {
+    z-index: 997;
+  }
+
+  ::ng-deep .leaflet-container {
+    width: 100%;
+    height: nb-theme(card-height-large);
+  }
+
+  ngx-d3-bar {
+    display: block;
+    width: 100%;
+    height: nb-theme(card-height-medium);
+
+    ::ng-deep {
+      .pie-label {
+        fill: nb-theme(text-basic-color);
+      }
+
+      text {
+        fill: nb-theme(text-hint-color);
+      }
+
+      .chart-legend {
+        .legend-labels {
+          background: nb-theme(background-basic-color-2);
+        }
+        .legend-label {
+          color: nb-theme(text-hint-color);
+          .active .legend-label-text {
+            color: nb-theme(text-basic-color);
+          }
+        }
+      }
+
+      .total-value,
+      .item-value,
+      .item-percent {
+        line-height: 1.25;
+      }
+
+      .legend-items {
+        overflow-y: hidden;
+      }
+    }
+  }
+
+  .leaflet-pane > svg .svglayer path {
+    pointer-events: auto;
+  }
+}

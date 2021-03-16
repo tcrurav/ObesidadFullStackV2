@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-xxl-6">
+        <nb-card>
+            <nb-card-header>Obesidad por distritos de Las Palmas de GC</nb-card-header>
+            <nb-card-body>
+              <div 
+                leaflet 
+                [leafletOptions]="options"
+                [leafletLayersControl]="layersControl"></div>
+            </nb-card-body>
+          </nb-card>
+    </div>
+
+    <div class="col-xxl-6">
+        <nb-card>
+            <nb-card-header>Pie</nb-card-header>
+            <nb-card-body>
+              <ngx-d3-bar></ngx-d3-bar>
+              <!-- <ngx-accordion></ngx-accordion> -->
+            </nb-card-body>
+          </nb-card>
+    </div>
+</div>

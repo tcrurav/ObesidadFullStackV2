@@ -8,6 +8,7 @@ module.exports = app => {
 
     // Retrieve all healths
     router.get("/", Health.findAll);
+    router.get("/SequelizeOnlyAverageTibu/:start_date/:end_date/:start_age/:end_age/:sex/:actividad_fisica", Health.SequelizeOnlyAverageTibu);
     router.get("/maparray/",Health.SequelizeOnlyAverage);
     router.get("/centeraverage/:id",Health.SequelizeOnlyAverageByCentro);
     router.get("/pipebysex/:sex",Health.SequelizeOnlyAverageBySex);

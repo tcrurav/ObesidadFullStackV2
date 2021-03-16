@@ -95,7 +95,7 @@ exports.findHealthbyDistrito = async (req, res) => {
         include: {
             model: Health,
             attributes: [],
-           
+
             include: {
                 model: Centro,
                 attributes: [],
@@ -103,7 +103,7 @@ exports.findHealthbyDistrito = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -118,7 +118,7 @@ exports.findHealthbyDistrito = async (req, res) => {
         include: {
             model: Health,
             attributes: [],
-           
+
             include: {
                 model: Centro,
                 attributes: [],
@@ -126,7 +126,7 @@ exports.findHealthbyDistrito = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -141,7 +141,7 @@ exports.findHealthbyDistrito = async (req, res) => {
         include: {
             model: Health,
             attributes: [],
-           
+
             include: {
                 model: Centro,
                 attributes: [],
@@ -149,7 +149,7 @@ exports.findHealthbyDistrito = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -164,7 +164,7 @@ exports.findHealthbyDistrito = async (req, res) => {
         include: {
             model: Health,
             attributes: [],
-           
+
             include: {
                 model: Centro,
                 attributes: [],
@@ -172,15 +172,15 @@ exports.findHealthbyDistrito = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
             }
         }
-        }
+    }
     )
-    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    let data = { infrapeso: countInfra, normopeso: countNormo, sobrepeso: countSobre, obesidad: countObeso }
     await res.json(data);
 }
 
@@ -203,7 +203,7 @@ exports.findHealthbyDistritoEdad = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -228,7 +228,7 @@ exports.findHealthbyDistritoEdad = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -253,7 +253,7 @@ exports.findHealthbyDistritoEdad = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -278,15 +278,15 @@ exports.findHealthbyDistritoEdad = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
             }
         }
-        }
+    }
     )
-    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    let data = { infrapeso: countInfra, normopeso: countNormo, sobrepeso: countSobre, obesidad: countObeso }
     await res.json(data);
 }
 exports.findHealthbyDistritoSexo = async (req, res) => {
@@ -308,7 +308,7 @@ exports.findHealthbyDistritoSexo = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -333,7 +333,7 @@ exports.findHealthbyDistritoSexo = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -358,7 +358,7 @@ exports.findHealthbyDistritoSexo = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -383,15 +383,15 @@ exports.findHealthbyDistritoSexo = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
             }
         }
-        }
+    }
     )
-    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    let data = { infrapeso: countInfra, normopeso: countNormo, sobrepeso: countSobre, obesidad: countObeso }
     await res.json(data);
 }
 exports.findHealthbyDistritoPh = async (req, res) => {
@@ -399,7 +399,7 @@ exports.findHealthbyDistritoPh = async (req, res) => {
         where: {
 
             percent_Grasa: { [Op.between]: [0, 11] },
-            actividad_Fisica:req.params.ph
+            actividad_Fisica: req.params.ph
         },
         include: {
             model: Health,
@@ -414,7 +414,7 @@ exports.findHealthbyDistritoPh = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -425,7 +425,7 @@ exports.findHealthbyDistritoPh = async (req, res) => {
         where: {
 
             percent_Grasa: { [Op.between]: [12, 22] },
-            actividad_Fisica:req.params.ph
+            actividad_Fisica: req.params.ph
         },
         include: {
             model: Health,
@@ -440,7 +440,7 @@ exports.findHealthbyDistritoPh = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -451,7 +451,7 @@ exports.findHealthbyDistritoPh = async (req, res) => {
         where: {
 
             percent_Grasa: { [Op.between]: [23, 30] },
-            actividad_Fisica:req.params.ph
+            actividad_Fisica: req.params.ph
         },
         include: {
             model: Health,
@@ -466,7 +466,7 @@ exports.findHealthbyDistritoPh = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
@@ -477,7 +477,7 @@ exports.findHealthbyDistritoPh = async (req, res) => {
         where: {
 
             percent_Grasa: { [Op.between]: [31, 100] },
-            actividad_Fisica:req.params.ph
+            actividad_Fisica: req.params.ph
         },
         include: {
             model: Health,
@@ -492,15 +492,15 @@ exports.findHealthbyDistritoPh = async (req, res) => {
                 include: {
                     model: Distrito,
                     attributes: [],
-                    where:{
+                    where: {
                         idDistrito: req.params.id
                     }
                 }
             }
         }
-        }
+    }
     )
-    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    let data = { infrapeso: countInfra, normopeso: countNormo, sobrepeso: countSobre, obesidad: countObeso }
     await res.json(data);
 }
 exports.healthExtendByAgeAverages = async (req, res) => {
@@ -556,37 +556,37 @@ exports.healthExtendByAgeAverages = async (req, res) => {
             }
         }
     })
-    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    let data = { infrapeso: countInfra, normopeso: countNormo, sobrepeso: countSobre, obesidad: countObeso }
     await res.json(data);
 }
 exports.healthExtendByPhisicalAverages = async (req, res) => {
     let countInfra = await HealthsExtend.count({
         where: {
             percent_Grasa: { [Op.between]: [12, 22] },
-            actividad_Fisica:req.params.ph
+            actividad_Fisica: req.params.ph
         }
     })
     let countNormo = await HealthsExtend.count({
         where: {
             percent_Grasa: { [Op.between]: [12, 22] },
-            actividad_Fisica:req.params.ph
+            actividad_Fisica: req.params.ph
         }
     })
     let countSobre = await HealthsExtend.count({
         where: {
             percent_Grasa: { [Op.between]: [12, 22] },
-            actividad_Fisica:req.params.ph
+            actividad_Fisica: req.params.ph
         }
     })
     let countObeso = await HealthsExtend.count({
         where: {
             percent_Grasa: { [Op.between]: [12, 22] },
-            actividad_Fisica:req.params.ph
+            actividad_Fisica: req.params.ph
         }
     })
-    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    let data = { infrapeso: countInfra, normopeso: countNormo, sobrepeso: countSobre, obesidad: countObeso }
     await res.json(data);
- 
+
 }
 
 
@@ -616,7 +616,7 @@ exports.CentersAverage = async (req, res) => {
             percent_Grasa: { [Op.between]: [31, 100] }
         }
     })
-    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    let data = { infrapeso: countInfra, normopeso: countNormo, sobrepeso: countSobre, obesidad: countObeso }
     await res.json(data);
 }
 exports.SequelizeOnlyAverageByCentro = async (req, res) => {
@@ -672,7 +672,7 @@ exports.SequelizeOnlyAverageByCentro = async (req, res) => {
             }
         }
     })
-    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    let data = { infrapeso: countInfra, normopeso: countNormo, sobrepeso: countSobre, obesidad: countObeso }
     await res.json(data);
 
 }
@@ -729,7 +729,7 @@ exports.SequelizeOnlyAverageByCentroEdad = async (req, res) => {
             }
         }
     })
-    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    let data = { infrapeso: countInfra, normopeso: countNormo, sobrepeso: countSobre, obesidad: countObeso }
     await res.json(data);
 
 }
@@ -786,9 +786,9 @@ exports.SequelizeOnlyAverageBySex = async (req, res) => {
             }
         }
     })
-    let data= {infrapeso: countInfra,normopeso:countNormo,sobrepeso:countSobre,obesidad:countObeso}
+    let data = { infrapeso: countInfra, normopeso: countNormo, sobrepeso: countSobre, obesidad: countObeso }
     await res.json(data);
-    
+
 }
 exports.SequelizeOnlyAverage = async (req, res) => {
     HealthsExtend.findAll({
@@ -824,7 +824,7 @@ exports.SequelizeOnlyAverage = async (req, res) => {
                 [Sequelize.fn('AVG', Sequelize.col('perimetro_Abdominal')), 'perimetro_Abdominal'],
                 [Sequelize.fn('AVG', Sequelize.col('actividad_Fisica')), 'actividad_Fisica'],
                 [Sequelize.fn('AVG', Sequelize.col('altura')), 'altura'],
-               
+
             ]
         },
         group: ["nombre", "lat", "long"],
@@ -837,6 +837,84 @@ exports.SequelizeOnlyAverage = async (req, res) => {
                 attributes: [],
                 as: "centros"
             }]
+        }]
+    }).then(data => {
+        res.json(data)
+    }).catch(err => {
+        console.log(err.message);
+
+        res.status(500).send({
+            message: err.message || "Some error occurred while retrieving Centro with id"
+        });
+        return;
+    })
+}
+
+exports.SequelizeOnlyAverageTibu = async (req, res) => {
+    let startDate = req.params.start_date;
+    let endDate = req.params.end_date;
+    let startAge = req.params.start_age;
+    let endAge = req.params.end_age;
+    let sex = req.params.sex;
+    let actividadFisica = req.params.actividad_fisica;
+    HealthsExtend.findAll({
+        raw: true,
+        attributes: {
+            exclude: [
+                "id",
+                "fecha",
+                "peso",
+                "percent_Grasa",
+                "percent_Hidratacion",
+                "peso_Muscular",
+                "masa_Muscular",
+                "peso_Oseo",
+                "kilocalorias",
+                "edad_Metabolica",
+                "altura",
+                "masa_Viseral",
+                "perimetro_Abdominal",
+                "actividad_Fisica",
+                "idHealth"
+            ], include: [
+                [Sequelize.col('health->centros.nombre'), 'nombre'],
+                [Sequelize.fn('AVG', Sequelize.col('peso')), 'AverageWeight']
+            ]
+        },
+        where: {
+            [Op.and]: [
+                {
+                    fecha: {
+                        [Op.between]: [startDate, endDate],
+                    }
+                },
+                { actividad_Fisica: actividadFisica }
+            ]
+        },
+        group: "nombre",
+        include: [{
+            model: Health,
+            attributes: [],
+            include: [{
+                model: Centro,
+                attributes: [],
+                as: "centros"
+            }],
+            // include: [{
+            //     model: Curso,
+            //     attributes: [],
+            //     as: "centros"
+            // }],
+            where: {
+                [Op.and]: [
+                    {
+                        edad: {
+                            [Op.between]: [startAge, endAge],
+                        }
+                    },
+                    { sexo: sex }
+                ]
+            },
         }]
     }).then(data => {
         res.json(data)
